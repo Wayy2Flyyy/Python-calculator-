@@ -5,6 +5,8 @@ Performs fast, accurate computations with clean logic and minimal overhead.
 Designed for simplicity, reliability, and easy reuse in larger projects.
 """
 
+import math
+
 
 class Calculator:
     """A simple calculator class for basic and advanced arithmetic operations."""
@@ -63,13 +65,11 @@ class Calculator:
         """
         if a < 0:
             raise ValueError("Cannot calculate square root of negative number")
-        return a ** 0.5
+        return math.sqrt(a)
 
 
 def main():
     """CLI interface for the calculator."""
-    calc = Calculator()
-    
     print("=== Python Calculator ===")
     print("Available operations:")
     print("1. Add")
@@ -95,24 +95,24 @@ def main():
             
             if choice == "7":
                 a = float(input("Enter number: "))
-                result = calc.square_root(a)
+                result = Calculator.square_root(a)
                 print(f"Result: {result}")
             else:
                 a = float(input("Enter first number: "))
                 b = float(input("Enter second number: "))
                 
                 if choice == "1":
-                    result = calc.add(a, b)
+                    result = Calculator.add(a, b)
                 elif choice == "2":
-                    result = calc.subtract(a, b)
+                    result = Calculator.subtract(a, b)
                 elif choice == "3":
-                    result = calc.multiply(a, b)
+                    result = Calculator.multiply(a, b)
                 elif choice == "4":
-                    result = calc.divide(a, b)
+                    result = Calculator.divide(a, b)
                 elif choice == "5":
-                    result = calc.power(a, b)
+                    result = Calculator.power(a, b)
                 elif choice == "6":
-                    result = calc.modulo(a, b)
+                    result = Calculator.modulo(a, b)
                 
                 print(f"Result: {result}")
         
